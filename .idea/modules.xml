@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dsd.iml" filepath="$PROJECT_DIR$/dsd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dsd-business/dsd-business.iml" filepath="$PROJECT_DIR$/dsd-business/dsd-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dsd-controller/dsd-controller.iml" filepath="$PROJECT_DIR$/dsd-controller/dsd-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dsd-repository/dsd-repository.iml" filepath="$PROJECT_DIR$/dsd-repository/dsd-repository.iml" />
+    </modules>
+  </component>
+</project>
