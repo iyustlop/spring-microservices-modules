@@ -16,7 +16,12 @@
         <dependency>
             <groupId>com.freelance.spring</groupId>
             <artifactId>dsd-repository</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.freelance.spring</groupId>
+            <artifactId>dsd-business</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
