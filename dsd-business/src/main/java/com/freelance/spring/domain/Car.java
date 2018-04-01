@@ -15,8 +15,6 @@ import javax.persistence.Id;
 public class Car {
     @Id
     private String id;
-    @NonNull
     private String manufacturer;
-    @NonNull
     private String model;
 }
