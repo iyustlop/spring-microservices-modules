@@ -5,7 +5,7 @@ import com.freelance.spring.domain.Car;
 import java.util.List;
 import java.util.Optional;
 
-public interface CarServices {
+public interface CarService {
 
     List<Car> findAll();
     Optional<Car> findById(String id);

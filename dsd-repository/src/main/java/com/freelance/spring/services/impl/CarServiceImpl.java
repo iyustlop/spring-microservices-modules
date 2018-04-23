@@ -2,7 +2,7 @@ package com.freelance.spring.services.impl;
 
 import com.freelance.spring.domain.Car;
 import com.freelance.spring.repository.CarRepository;
-import com.freelance.spring.services.CarServices;
+import com.freelance.spring.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CarServicesImpl implements CarServices {
+public class CarServiceImpl implements CarService {
 
     @Autowired
     private CarRepository carRepository;
