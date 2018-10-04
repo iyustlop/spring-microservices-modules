@@ -3,19 +3,16 @@ package com.freelance.spring.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(collection = "Cars")
 public class Car {
-    @Id @GeneratedValue
-    private Long id;
-    @NonNull private String manufacturer;
-    @NonNull private String model;
+    @Id
+    private String id;
+    private String manufacturer;
+    private String model;
 }

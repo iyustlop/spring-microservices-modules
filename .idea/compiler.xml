@@ -9,7 +9,6 @@
         <module name="dsd-business" />
         <module name="dsd-controller" />
         <module name="dsd-repository" />
-        <module name="dsdbusiness" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,7 +16,6 @@
       <module name="dsd-business" target="1.8" />
       <module name="dsd-controller" target="1.8" />
       <module name="dsd-repository" target="1.8" />
-      <module name="dsdbusiness" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
