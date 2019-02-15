@@ -1,4 +1,4 @@
-package com.freelance.spring.main;
+package com.freelance.spring;
 
 import com.freelance.spring.repository.CarRepository;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +12,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableAutoConfiguration
 @EnableMongoRepositories(basePackageClasses = CarRepository.class)
 public class ApplicationMain {
+    /**
+     * Main.
+     * @param args arguments
+     */
     public static void main(String[] args) {
         SpringApplication.run(ApplicationMain.class);
     }
