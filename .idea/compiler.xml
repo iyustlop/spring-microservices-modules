@@ -15,7 +15,9 @@
       <module name="dsd" target="1.8" />
       <module name="dsd-business" target="1.8" />
       <module name="dsd-controller" target="1.8" />
+      <module name="dsd-exceptions" target="1.8" />
       <module name="dsd-repository" target="1.8" />
+      <module name="dsdexceptions" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

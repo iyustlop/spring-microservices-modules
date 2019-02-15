@@ -1,16 +1,24 @@
 package com.freelance.spring.config;
 
-import com.freelance.spring.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
+/**
+ * Config class.
+ */
 @Component
 public class Config {
 
+    /**
+     * MongoDb Template.
+     */
     private final MongoTemplate mongoTemplate;
 
+    /**
+     * Config MongoDb Template.
+     * @param mongoTemplate declare template
+     */
     @Autowired
     public Config(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
