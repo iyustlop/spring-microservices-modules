@@ -1,1 +1,10 @@
 language: java
+
+addons:
+  sonarcloud:
+    organization: "iyustlop-github" # the key of the org you chose at step #3
+    token:
+      secure: a7c4e65f71c37be051a9a173a35d46090f4283e0 # encrypted value of your token
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
