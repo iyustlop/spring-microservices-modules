@@ -38,7 +38,7 @@ public class Controller {
      */
     @GetMapping(path = "/car/{id}")
     public ResponseEntity<Car> coolCar(@PathVariable(name = "id") String id) throws CarServiceException {
-        return ResponseEntity.ok(this.carService.findByManufacturer(id));
+        return ResponseEntity.ok(this.carService.findById(id));
     }
 
     /**

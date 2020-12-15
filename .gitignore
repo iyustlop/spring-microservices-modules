@@ -117,3 +117,11 @@ $RECYCLE.BIN/
 
 *.iml
 # End of https://www.gitignore.io/api/java,windows,intellij
+
+**/.classpath
+**/.factorypath
+**/.project
+**/.name
+**/*.settings
+.idea/
+target/
