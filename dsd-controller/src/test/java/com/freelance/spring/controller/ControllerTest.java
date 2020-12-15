@@ -10,23 +10,21 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Optional;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = Controller.class, secure = false)
+@WebMvcTest(controllers = Controller.class)
 @Import(Config.class)
 public class ControllerTest {
 
@@ -50,4 +48,15 @@ public class ControllerTest {
                 .andExpect(jsonPath("$", hasSize(2)));
     }
 
+    @Test
+    public void coolCar() throws Exception {
+        String id = "id";
+        when(carRepository.findById(id)).thenReturn(
+                Optional.of(new Car("1", "ferrari", Collections.singletonList("288")))
+        );
+
+        mockMvc.perform(get("/car/" + id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.manufacturer").value("ferrari"));
+    }
 }

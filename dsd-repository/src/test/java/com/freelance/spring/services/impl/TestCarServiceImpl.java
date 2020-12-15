@@ -30,11 +30,11 @@ public class TestCarServiceImpl {
     @Test
     public void lookupExistingManufacturer() throws CarServiceException {
         CarRepository mockCarRepo = mock(CarRepository.class);
-        when(mockCarRepo.findByManufacturer(anyString())).thenReturn(
-                new Car("mId", "mManufacturer", Arrays.asList("mModel")));
+        when(mockCarRepo.findById(anyString())).thenReturn(
+                java.util.Optional.of(new Car("mId", "mManufacturer", Arrays.asList("mModel"))));
         CarService carService = new CarServiceImpl(mockCarRepo);
 
-        Car car = carService.findByManufacturer("Ferrari");
+        Car car = carService.findById("Ferrari");
 
         Assert.assertNotNull(car);
     }
@@ -42,11 +42,11 @@ public class TestCarServiceImpl {
     @Test
     public void throwExceptionForNonExistingManufacturer() {
         CarRepository mockCarRepo = mock(CarRepository.class);
-        when(mockCarRepo.findByManufacturer(anyString())).thenReturn(null);
+        when(mockCarRepo.findById(anyString())).thenReturn(null);
         CarService carService = new CarServiceImpl(mockCarRepo);
 
         try {
-            carService.findByManufacturer("Ferrari");
+            carService.findById("Ferrari");
             Assert.fail("Exception should had been thrown");
         } catch (Exception e) {
             Assert.assertEquals("Manufacturer Ferrari does not exist", e.getMessage());

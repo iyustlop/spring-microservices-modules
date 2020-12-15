@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Repository class.
@@ -38,13 +39,13 @@ public class CarServiceImpl implements CarService {
      * @return list on manufacturer and model
      */
     @Override
-    public Car findByManufacturer(String byManufacturer) throws CarServiceException {
-        Car car = carRepository.findByManufacturer(byManufacturer);
+    public Car findById(String byManufacturer) throws CarServiceException {
+        Optional<Car> car = carRepository.findById(byManufacturer);
 
         if (car == null) {
             throw new CarServiceException("Manufacturer " + byManufacturer + " does not exist");
         }
-        return car;
+        return car.get();
     }
 
     /**

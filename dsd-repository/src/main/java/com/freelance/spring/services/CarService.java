@@ -19,7 +19,7 @@ public interface CarService {
      * @param id
      * @return manufacturer info
      */
-    Car findByManufacturer(String id) throws CarServiceException;
+    Car findById(String id) throws CarServiceException;
 
     /**
      * Save new Car.
