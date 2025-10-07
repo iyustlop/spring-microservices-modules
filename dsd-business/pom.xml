@@ -12,4 +12,12 @@
     <artifactId>dsd-business</artifactId>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.freelance.spring</groupId>
+            <artifactId>llamadas</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 </project>
