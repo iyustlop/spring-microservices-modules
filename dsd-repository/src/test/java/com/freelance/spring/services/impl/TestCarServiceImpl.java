@@ -4,11 +4,12 @@ import com.freelance.spring.domain.Car;
 import com.freelance.spring.exceptions.CarServiceException;
 import com.freelance.spring.repository.CarRepository;
 import com.freelance.spring.services.CarService;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
@@ -24,7 +25,7 @@ public class TestCarServiceImpl {
 
         List<Car> carList = carService.findAll();
 
-        Assert.assertTrue(!carList.isEmpty());
+        Assertions.assertTrue(!carList.isEmpty());
     }
 
     @Test
@@ -36,20 +37,19 @@ public class TestCarServiceImpl {
 
         Car car = carService.findById("Ferrari");
 
-        Assert.assertNotNull(car);
+        Assertions.assertNotNull(car);
     }
 
     @Test
     public void throwExceptionForNonExistingManufacturer() {
         CarRepository mockCarRepo = mock(CarRepository.class);
-        when(mockCarRepo.findById(anyString())).thenReturn(null);
+        when(mockCarRepo.findById(anyString())).thenReturn(Optional.empty());
         CarService carService = new CarServiceImpl(mockCarRepo);
 
-        try {
+        CarServiceException exception = Assertions.assertThrows(CarServiceException.class, () -> {
             carService.findById("Ferrari");
-            Assert.fail("Exception should had been thrown");
-        } catch (Exception e) {
-            Assert.assertEquals("Manufacturer Ferrari does not exist", e.getMessage());
-        }
+        });
+
+        Assertions.assertEquals("Manufacturer Ferrari does not exist", exception.getMessage());
     }
 }

@@ -40,12 +40,8 @@ public class CarServiceImpl implements CarService {
      */
     @Override
     public Car findById(String byManufacturer) throws CarServiceException {
-        Optional<Car> car = carRepository.findById(byManufacturer);
-
-        if (car == null) {
-            throw new CarServiceException("Manufacturer " + byManufacturer + " does not exist");
-        }
-        return car.get();
+        return carRepository.findById(byManufacturer)
+                .orElseThrow(() -> new CarServiceException("Manufacturer " + byManufacturer + " does not exist"));
     }
 
     /**
